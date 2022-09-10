@@ -14,12 +14,13 @@ namespace MyApplication
             string myName = "Bryce";
             string bakeryName = "The Flying Pigs";
             char messageType = 'a';
+            char formType = 'b';
             bool isBakery = true;
             bool customerIsHuman = true;
             
             if (isBakery)
             {
-                Console.WriteLine("This is message type: " + messageType);
+                Console.WriteLine("This is message type: " + messageType + formType);
                 Console.WriteLine("This bakery is called " + bakeryName);
                 Console.WriteLine("Welcome, " + myName+"!");
                 Console.WriteLine("There are "+cherryPies+" cherry pies, and "+applePies+" apple pies.");
