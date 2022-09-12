@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 3971498363627432361}
   - component: {fileID: 1462735298497827951}
   - component: {fileID: 1462735298497827948}
+  - component: {fileID: -1499222312038065407}
   m_Layer: 0
   m_Name: BalloonBlue
   m_TagString: Untagged
@@ -309,3 +310,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickToPop: 5
   scaleToInflate: 0.2
+--- !u!114 &-1499222312038065407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053576182483607150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97b8470c95e65a498b9b562dbd1f728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  upperBound: 20
