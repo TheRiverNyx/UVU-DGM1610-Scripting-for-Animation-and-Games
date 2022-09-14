@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickToPop: 5
   scaleToInflate: 0.2
+  scoreToGive: 100
 --- !u!114 &-1499222312038065407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,5 +323,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97b8470c95e65a498b9b562dbd1f728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 5
   upperBound: 20

@@ -20,17 +20,15 @@ public class SpawnManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void SpawnRandomBalloon()
     {
         // get random point on the x-axis
         Vector3 spawnPos = new Vector3(Random.Range(-xRange,xRange),0,0);
+        
         //pick random balloon from the balloon array
         int balloonIndex = Random.Range(0, balloonPrefabs.Length);
+        
         //spawn a random balloon at spawn point
         Instantiate(balloonPrefabs[balloonIndex],spawnPos, balloonPrefabs[balloonIndex].transform.rotation);
 
