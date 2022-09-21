@@ -8,7 +8,11 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;//speed that the player moves
 
-    public float xRange=11.00f;
+    public float xRange=22.00f;
+
+    public GameObject laserBolt; //GameObject projectile to shoot 
+
+    public Transform blaster; //point of origin for the laser bolt
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,11 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x < -xRange)//keep player within left wall at set -xRange
         {
             transform.position = new Vector3(-xRange, transform.position.y,transform.position.z);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation);//Instantiate laserBolt gameObject at blaster position
         }
     }
 }
