@@ -6,9 +6,9 @@ public class EnemySpawnController : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
 
-    private float spawnRangeX;
+    private float spawnRangeX = 17f;
 
-    private float spawnPosZ;
+    private float spawnPosZ= 20f;
 
     private float startDelay = 2.0f;
 
@@ -27,6 +27,6 @@ public class EnemySpawnController : MonoBehaviour
         //pick an enemy from the array
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
         //Spawn the enemy
-        Instantiate(enemyPrefabs[enemyIndex-1], spawnPos, enemyPrefabs[enemyIndex-1].transform.rotation);
+        Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
     }
 }
