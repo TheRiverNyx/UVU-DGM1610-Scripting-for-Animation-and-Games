@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemySpawnController : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-
+    [SerializeField]
     private float spawnRangeX = 17f;
-
+    [SerializeField]
     private float spawnPosZ= 20f;
 
     private float startDelay = 2.0f;
