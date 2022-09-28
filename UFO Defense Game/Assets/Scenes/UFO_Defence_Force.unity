@@ -272,6 +272,8 @@ MonoBehaviour:
   - {fileID: 5333599012529144810, guid: a6110ca930b8b2540bff5409a5507404, type: 3}
   - {fileID: 5879246354166384140, guid: 1d5a0eacc24081c4e84a22404dc82772, type: 3}
   - {fileID: 5774094243081427445, guid: 0ae444e47eb6e3b498d27cab12b459bb, type: 3}
+  spawnRangeX: 17
+  spawnPosZ: 25
 --- !u!4 &1331535663
 Transform:
   m_ObjectHideFlags: 0
