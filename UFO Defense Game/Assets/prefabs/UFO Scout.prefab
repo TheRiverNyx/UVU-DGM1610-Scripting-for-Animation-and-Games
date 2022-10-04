@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5774094243081427446}
   - component: {fileID: 5774094243081427443}
   - component: {fileID: 342792343198916212}
+  - component: {fileID: -6079126799589254437}
   m_Layer: 0
   m_Name: UFO Scout
   m_TagString: Enemy
@@ -227,3 +228,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 50
   lowerBounds: -10
+--- !u!114 &-6079126799589254437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5774094243081427445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9def879ce1ef0fb44b6aba0abe5f1155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
+  scoreToGive: 200
