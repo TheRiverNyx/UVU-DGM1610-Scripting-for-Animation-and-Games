@@ -14,6 +14,13 @@ public class PlayerController : MonoBehaviour
     public GameObject laserBolt; //GameObject projectile to shoot 
 
     public Transform blaster; //point of origin for the laser bolt
+
+    public GameManager gameManager;
+    
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();//reference GameManager script
+    }
     
     // Update is called once per frame
     void Update()
@@ -35,7 +42,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(-xRange, transform.position.y,transform.position.z);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&& gameManager.isGameOver == false)//prevents laser from firing if game is over
         {
             Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation);//Instantiate laserBolt gameObject at blaster position
         }

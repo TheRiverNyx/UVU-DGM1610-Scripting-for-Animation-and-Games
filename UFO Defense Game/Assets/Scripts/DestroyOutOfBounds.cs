@@ -28,7 +28,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         {
             Destroy(gameObject);
         }else if (transform.position.z<lowerBounds){
-            if (gameObject.CompareTag("Enemy"))//if gameobject has enemy tag end destroy the player and end the game
+            if (gameObject.CompareTag("Enemy"))//only decrease score if enemy goes beyond bottom bound
             {
                 scoreManager.DecreaseScore(detectCollision.scoreToGive);
             }
