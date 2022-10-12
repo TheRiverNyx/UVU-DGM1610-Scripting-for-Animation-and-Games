@@ -22,11 +22,15 @@ public class DetectCollision : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        Instantiate(explosionParticles,transform.position,transform.rotation);
-        explosionParticles.transform.parent = null;
+        Explosion();
         scoreManager.IncreaseScore(scoreToGive);//Increase score amount by scoreToGive
         Destroy(gameObject);//Destroy this game object
         Destroy(other.gameObject);//destroys the object that hits the object
+    }
+
+    void Explosion()
+    {
+        Instantiate(explosionParticles,transform.position,transform.rotation);//creates particles
     }
     
 }
