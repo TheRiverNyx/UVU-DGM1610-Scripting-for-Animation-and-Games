@@ -10,6 +10,8 @@ public class DetectCollision : MonoBehaviour
     private ScoreManager scoreManager;//reference the score manager
 
     public ParticleSystem explosionParticles;
+
+    private AudioSource explosionSound;
     
     public int scoreToGive;//sets the score that UFOs will give
     // Start is called before the first frame update
@@ -17,11 +19,13 @@ public class DetectCollision : MonoBehaviour
     void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        explosionSound = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
+        explosionSound.Play();
         Explosion();
         scoreManager.IncreaseScore(scoreToGive);//Increase score amount by scoreToGive
         Destroy(gameObject);//Destroy this game object
