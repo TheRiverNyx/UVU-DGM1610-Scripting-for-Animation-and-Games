@@ -21,9 +21,8 @@ public class DetectCollision : MonoBehaviour
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
         explosionSound = GameObject.Find("ExplosionSound").GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void OnTriggerEnter(Collider other)
+    
+    void OnTriggerEnter(Collider other)//
     {
         explosionSound.Play();
         Explosion();
