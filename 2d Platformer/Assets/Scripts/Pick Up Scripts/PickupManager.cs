@@ -22,7 +22,7 @@ public class PickupManager : MonoBehaviour
     private int pickUp9Amount;
     private int pickUp0Amount;
     
-    //text for pickup counters
+    //reference the text for the pickup counters
     public TextMeshProUGUI pickUp1Text;
     public TextMeshProUGUI pickUp2Text;
     public TextMeshProUGUI pickUp3Text;
@@ -36,10 +36,10 @@ public class PickupManager : MonoBehaviour
     
     // Start is called before the first frame update
     
-    void Start()
+    /*void Start()
     {
 
-    }
+    }*/
 
     private void Update()
     {
@@ -145,6 +145,8 @@ public class PickupManager : MonoBehaviour
         pickUpText.text = "" + pickUpAmount;
     }
 
+    //individual pickup functions that also remove pickup from inventory when used
+    //Debug.Log is just filler until actual pickup functions are added 
     private void PickUp1()
     {
         if (pickUp1Amount > 0)

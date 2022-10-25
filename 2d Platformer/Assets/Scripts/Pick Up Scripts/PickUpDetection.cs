@@ -6,28 +6,20 @@ using UnityEngine;
 public class PickUpDetection : MonoBehaviour
 {
     [SerializeField]
-    private int pickUpType;
+    private int pickUpType;//which pickup this is in a range from 0-9
 
     private PickupManager pickupManager;
-    
     // Start is called before the first frame update
     void Start()
     {
-        pickupManager = GameObject.Find("player").GetComponent<PickupManager>();
+        pickupManager = GameObject.Find("player").GetComponent<PickupManager>();//reference the pickup manager on the player
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))//only pick up if the other object has tag "Player"
         {
-            pickupManager.PickUpThePickUp(pickUpType);
-            Destroy(gameObject);
+            pickupManager.PickUpThePickUp(pickUpType);//add pickup to inventory
+            Destroy(gameObject);//delete pickup
         }
     }
 }
