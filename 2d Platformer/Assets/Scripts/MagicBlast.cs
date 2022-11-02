@@ -10,11 +10,21 @@ public class MagicBlast : MonoBehaviour
     public int damage;
 
     public Rigidbody2D rb;
+
+    public PlayerController2D player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("player").GetComponent<PlayerController2D>();
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * speed;
+        if (player.isFacingRight)
+        {
+            rb.velocity = transform.right * speed;
+        }
+        else
+        {
+            rb.velocity = transform.right * -speed;
+        }
     }
 
     // Update is called once per frame

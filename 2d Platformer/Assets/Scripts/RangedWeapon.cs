@@ -8,6 +8,8 @@ public class RangedWeapon : MonoBehaviour
     public Transform firePoint;
 
     public GameObject projectile;
+    
+    
 
     // Update is called once per frame
     void Update()
