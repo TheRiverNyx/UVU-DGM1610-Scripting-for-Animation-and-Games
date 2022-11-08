@@ -35,7 +35,7 @@ public class MagicBlast : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GhostEnemy enemy = other.GetComponent<GhostEnemy>();
+        Enemy enemy = other.GetComponent<Enemy>();
         if (other.gameObject.CompareTag("Enemy"))
         {
             enemy.TakeDamage(damage);
