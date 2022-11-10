@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 3;
+    public int maxHealth = 10;
 
     public int currentHealth;
 
@@ -25,9 +25,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int dmgAmount)
     {
         currentHealth -= dmgAmount;
+        Debug.Log("Player Health = "+currentHealth);
         if (currentHealth <= 0)
         {
-            Destroy(gameObject,deathDelay);
+            Debug.Log("You are dead! Game Over!");
+            Time.timeScale = 0;//freeze the game on player death
         }
     }
 

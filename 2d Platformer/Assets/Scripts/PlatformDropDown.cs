@@ -35,7 +35,7 @@ public class PlatformDropDown : MonoBehaviour
             }
         }
         //flip effector back up
-        if (Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.DownArrow)||Input.GetKeyUp(KeyCode.S))
         {
             effector2D.rotationalOffset = 0;
         }
