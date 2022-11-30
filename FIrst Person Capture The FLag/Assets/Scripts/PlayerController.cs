@@ -48,13 +48,20 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal")*moveSpeed;//left and right
         float z = Input.GetAxis("Vertical")*moveSpeed;//forward and back
 
-        rigb.velocity = new Vector3(x, rigb.velocity.y, z);
+        //rigb.velocity = new Vector3(x, rigb.velocity.y, z);
+        Vector3 dir = transform.right * x + transform.forward * z;
+        dir.y = rigb.velocity.y;
+        rigb.velocity = dir;
     }
 
     void CameraLook()
     {
         float y = Input.GetAxis("Mouse X")*lookSensitivity;//look up and down
         rotX += Input.GetAxis("Mouse Y") * lookSensitivity;//look left and right
+        rotX = Mathf.Clamp(rotX, minLookX, maxLookX);//restrict rotation on x-axis between maxLookX and minLookX
+        
+        camera.transform.localRotation = Quaternion.Euler(-rotX, 0 ,0);
+        transform.eulerAngles += Vector3.up * y; 
         
     }
 
