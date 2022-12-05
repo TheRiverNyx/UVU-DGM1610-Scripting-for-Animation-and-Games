@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    public int curHp;
+    public int maxHp;
     [Header("Player Movement")]
     public float moveSpeed;
     public float jumpForce;
@@ -13,11 +15,8 @@ public class PlayerController : MonoBehaviour
     public float lookSensitivity;
     public float maxLookX;
     public float minLookX;
-
     private float rotX;
-
     private Camera camera;
-
     private Rigidbody rigb;
 
     private void Awake()
@@ -29,9 +28,29 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        curHp = maxHp;
+    }
+    public void TakeDamage(int damage)
+    {
+        curHp -= damage;
+        if (curHp <= 0)
+            Die();
+    }
+
+    public void GiveHealth(int value)
+    {
+        curHp = Mathf.Clamp(curHp + value, 0, maxHp);
+    }
+
+    public void GiveAmmo(int value)
+    {
         
     }
 
+    public void Die()
+    {
+        Debug.Log("game Over!");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -74,4 +93,5 @@ public class PlayerController : MonoBehaviour
             rigb.AddForce(Vector3.up*jumpForce,ForceMode.Impulse);
         }
     }
+    
 }
