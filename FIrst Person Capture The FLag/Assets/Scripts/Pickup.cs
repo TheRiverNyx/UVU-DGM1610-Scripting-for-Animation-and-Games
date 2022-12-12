@@ -8,7 +8,7 @@ public class Pickup : MonoBehaviour
     public PickUpType type;
 
     public int value;
-
+    public GameObject particleSystem;
     [Header("Bobbing Motion")] 
     public float rotationSpeed;
     public float bobSpeed;
@@ -33,18 +33,21 @@ public class Pickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
-            switch (type)
+            switch (type)//decide whether the powerup gives health or ammo
             {
                 case PickUpType.Ammo:
-                    player.GiveHealth(value);
+                    player.GiveAmmo(value);//calls GiveAmmo
                     break;
-                case PickUpType.Health:
-                    player.GiveAmmo(value);
+                case PickUpType.Health://Calls GiveHealth
+                    player.GiveHealth(value);
                     break;
                 default:
                     print("PickUp type is not valid");
                     break;
             }
+
+            AudioSource.PlayClipAtPoint(pickupSFX,transform.position);//plays audio clip at position when picked up
+            Instantiate(particleSystem);
             Destroy(gameObject);
         }
     }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     public int curHp;
     public int maxHp;
+    public AudioClip deathSound;
     [Header("Player Movement")]
     public float moveSpeed;
     public float jumpForce;
@@ -18,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private float rotX;
     private Camera camera;
     private Rigidbody rigb;
+    private GameManager gm;
+
+    [Header("Ui")] public TextMeshProUGUI healthText;
 
     private void Awake()
     {
@@ -29,10 +35,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         curHp = maxHp;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
     public void TakeDamage(int damage)
     {
-        curHp -= damage;
+        curHp = Mathf.Clamp(curHp - damage, 0, maxHp);
+        UpdateHealth();
         if (curHp <= 0)
             Die();
     }
@@ -40,6 +49,7 @@ public class PlayerController : MonoBehaviour
     public void GiveHealth(int value)
     {
         curHp = Mathf.Clamp(curHp + value, 0, maxHp);
+        UpdateHealth();
     }
 
     public void GiveAmmo(int value)
@@ -49,7 +59,11 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("game Over!");
+        AudioSource.PlayClipAtPoint(deathSound,transform.position);
+        Time.timeScale = 0.25f;
+        Time.fixedDeltaTime = 0.02f*Time.timeScale;
+        gm.gameOver = true;
+        gm.youLostText.SetActive(true);
     }
     // Update is called once per frame
     void Update()
@@ -93,5 +107,10 @@ public class PlayerController : MonoBehaviour
             rigb.AddForce(Vector3.up*jumpForce,ForceMode.Impulse);
         }
     }
-    
+
+    void UpdateHealth()
+    {
+        healthText.text = "Health : "+curHp;
+    }
+
 }
