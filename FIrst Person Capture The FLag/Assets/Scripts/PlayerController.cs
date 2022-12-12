@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Camera camera;
     private Rigidbody rigb;
     private GameManager gm;
+    private AudioSource mainMusic;
 
     [Header("Ui")] public TextMeshProUGUI healthText;
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainMusic = GameObject.Find("Music").GetComponent<AudioSource>();
         curHp = maxHp;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         AudioSource.PlayClipAtPoint(deathSound,transform.position);
+        mainMusic.Stop();
         Time.timeScale = 0.25f;
         Time.fixedDeltaTime = 0.02f*Time.timeScale;
         gm.gameOver = true;
